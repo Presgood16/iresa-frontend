@@ -8,7 +8,8 @@ import Header from "./../components/Header";
 
 const Register = ({ location, history }) => {
   window.scrollTo(0, 0);
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -26,7 +27,7 @@ const Register = ({ location, history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(register(name, email, password));
+    dispatch(register(firstName, lastName, email, password));
   };
 
   return (
@@ -42,9 +43,15 @@ const Register = ({ location, history }) => {
         >
           <input 
           type="text" 
-          placeholder="Username" 
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          placeholder="First Name" 
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          />
+           <input 
+          type="text" 
+          placeholder="Last Name" 
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
           />
           <input 
           type="email" 

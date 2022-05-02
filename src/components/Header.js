@@ -48,8 +48,8 @@ const Header = () => {
               <a href="https://youtube.com" target="_blank" rel="noreferrer">
                 <i className="fab fa-youtube"></i>
               </a>
-              <a href="https://pinterest.com" target="_blank" rel="noreferrer">
-                <i className="fab fa-pinterest-p"></i>
+              <a href="https://tiktok.com/@deronke3" target="_blank" rel="noreferrer">
+                <span className="iconify" data-icon="simple-icons:tiktok"></span>
               </a>
             </div>
           </div>
@@ -174,7 +174,7 @@ const Header = () => {
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    Hi, {userInfo.name}
+                    Hi, {userInfo.firstName}
                   </button>
                   <div className="dropdown-menu">
                     <Link className="dropdown-item" to="/profile">

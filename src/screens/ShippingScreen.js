@@ -26,7 +26,7 @@ const ShippingScreen = ({ history }) => {
       <Header />
       <div className="container d-flex justify-content-center align-items-center login-center">
         <form
-          className="Login col-md-8 col-lg-4 col-11"
+          className="Login col-md-6 col-lg-4 col-11"
           onSubmit={submitHandler}
         >
           <h6>DELIVERY ADDRESS</h6>

@@ -69,7 +69,7 @@ const PlaceOrderScreen = ({ history }) => {
                 <h5>
                   <strong>Customer</strong>
                 </h5>
-                <p>{userInfo.name}</p>
+                <p>{userInfo.firstName} {userInfo.lastName}</p>
                 <p>{userInfo.email}</p>
               </div>
             </div>

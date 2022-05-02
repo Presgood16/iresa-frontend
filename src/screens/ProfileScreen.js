@@ -36,7 +36,7 @@ const ProfileScreen = () => {
                 </div>
                 <div className="author-card-details col-md-7">
                   <h5 className="author-card-name mb-2">
-                    <strong>{userInfo.name}</strong>
+                    <strong>{userInfo.firstName} {userInfo.lastName}</strong>
                   </h5>
                   <span className="author-card-position">
                     <>Joined {moment(userInfo.createdAt).format("LL")}</>

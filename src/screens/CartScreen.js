@@ -37,7 +37,7 @@ const CartScreen = ({ match, location, history }) => {
           <div className=" alert alert-info text-center mt-3">
             Your cart is empty
             <Link
-              className="btn btn-primary mx-5 px-5 py-3"
+              className="btn btn-primary mx-5 px-5 py-2"
               to="/"
               style={{
                 fontSize: "12px",
@@ -48,7 +48,7 @@ const CartScreen = ({ match, location, history }) => {
           </div>
         ) : (
           <>
-            <div className=" alert alert-info text-center mt-3">
+            <div className=" alert alert-info text-center mt-3 p-2">
           Total Cart Products
           <Link className="text-success mx-2" to="/cart">
             ({cartItems.length})
