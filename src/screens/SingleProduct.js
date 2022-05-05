@@ -98,7 +98,7 @@ const SingleProduct = ({ history, match }) => {
                 </div>
                 {product.countInStock > 0 ? (
                   <>
-                    <div className="flex-box d-flex justify-content-between align-items-center">
+                    <div className="flex-box d-flex justify-content-between align-items-right">
                       <h6>Quantity</h6>
                       <select
                       value={qty}
@@ -135,7 +135,7 @@ const SingleProduct = ({ history, match }) => {
                     key={review._id}
                     className="mb-5 mb-md-3 bg-light p-3 shadow-sm rounded"
                   >
-                    <strong>{review.name}</strong>
+                    <strong>{review.firstName} {review.lastName}</strong>
                     <Rating value={review.rating} />
                     <span>{moment(review.createdAt).calendar()}</span>
                     <div className="alert alert-info mt-3">

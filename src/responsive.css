@@ -46,6 +46,9 @@
   .single-product {
     margin-top: 20px;
   }
+  .form-section input[type="email"] {
+  text-align: center;
+  }
 }
 @media (max-width: 768px) {
   .pc-header {
@@ -113,6 +116,9 @@
   .order-detail {
     margin-top: 20px;
   }
+  .form-section input[type="email"] {
+  text-align: center;
+  }
 }
 @media (max-width: 575.98px) {
   .subscribe-head .form-section input[type="email"] {
@@ -159,5 +165,8 @@
   .single-image,
   .single-image img {
     height: 200px;
+  }
+  .form-section input[type="email"] {
+  text-align: center;
   }
 }
