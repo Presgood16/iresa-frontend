@@ -496,13 +496,15 @@ textarea:focus {
 }
 /* orders */
 .link {
-  color: blue;
-  border-bottom: 1px solid blue;
+  /* color: blue;
+  border-bottom: 1px solid blue; */
   padding-bottom: 5px;
   font-size: 15px;
+  color: #000000;
 }
 .link:hover {
   color: blue;
+  border-bottom: 1px solid blue;
 }
 .table-responsive {
   width: 100%;

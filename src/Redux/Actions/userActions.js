@@ -51,13 +51,16 @@ export const login = (email, password) => async (dispatch) => {
 // LOGOUT
 export const logout = () => (dispatch) => {
   localStorage.removeItem("userInfo");
+  localStorage.removeItem("cartItems");
+  localStorage.removeItem("shippingAddress");
   dispatch({ type: USER_LOGOUT });
   dispatch({ type: USER_DETAILS_RESET });
   dispatch({ type: ORDER_LIST_MY_RESET });
+  document.location.href = '/login';
 };
 
 // REGISTER
-export const register = (firstName, lastName, email, password) => async (dispatch) => {
+export const register = (firstName, lastName, email, tel, password) => async (dispatch) => {
   try {
     dispatch({ type: USER_REGISTER_REQUEST });
 
@@ -69,7 +72,7 @@ export const register = (firstName, lastName, email, password) => async (dispatc
 
     const { data } = await axios.post(
       `${URL}/api/users`,
-      { firstName, lastName, email, password },
+      { firstName, lastName, email, tel, password },
       config
     );
     dispatch({ type: USER_REGISTER_SUCCESS, payload: data });

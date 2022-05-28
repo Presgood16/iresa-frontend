@@ -11,6 +11,7 @@ const ProfileTabs = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [tel, setTel] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const toastId = React.useRef(null);
@@ -35,6 +36,7 @@ const ProfileTabs = () => {
       setFirstName(user.firstName);
       setLastName(user.lastName);
       setEmail(user.email);
+      setTel(user.tel);
     }
   }, [dispatch, user]);
 
@@ -92,6 +94,18 @@ const ProfileTabs = () => {
               value={email}
               required
               onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="form">
+            <label for="account-tel">Phone Number</label>
+            <input
+              className="form-control"
+              type="tel"
+              value={tel}
+              required
+              onChange={(e) => setTel(e.target.value)}
             />
           </div>
         </div>

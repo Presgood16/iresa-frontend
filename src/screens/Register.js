@@ -5,13 +5,27 @@ import Message from "../components/LoadingError/Error";
 import Loading from "../components/LoadingError/Loading";
 import { register } from "../Redux/Actions/userActions";
 import Header from "./../components/Header";
+import { toast } from "react-toastify";
+import Toast from "../components/LoadingError/Toast";
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 
 const Register = ({ location, history }) => {
   window.scrollTo(0, 0);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [tel, setTel] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const toastId = React.useRef(null);
+
+   const Toastobjects = {
+    pauseOnFocusLoss: false,
+    draggable: false,
+    pauseOnHover: false,
+    autoClose: 2000,
+  };
 
   const dispatch = useDispatch();
   const redirect = location.search ? location.search.split("=")[1] : "/";
@@ -27,11 +41,21 @@ const Register = ({ location, history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(register(firstName, lastName, email, password));
+    if (password !== confirmPassword) {
+      if (!toast.isActive(toastId.current)) {
+        toastId.current = toast.error("Password does not match", Toastobjects);
+      }
+    } else {
+      dispatch(register(firstName, lastName, email, tel, password));
+      if (!toast.isActive(toastId.current)) {
+        toastId.current = toast.success("Account Created", Toastobjects);
+      }
+    }
   };
 
   return (
     <>
+      <Toast/>
       <Header />
       <div className="container d-flex flex-column justify-content-center align-items-center login-center">
         {error && <Message variant="alert-danger">{error}</Message>}
@@ -60,10 +84,22 @@ const Register = ({ location, history }) => {
           onChange={(e) => setEmail(e.target.value)}
           />
           <input 
+          type="tel"
+          placeholder="Phone Number"
+          value={tel}          
+          onChange={(e) => setTel(e.target.value)}
+          />
+          <input 
           type="password" 
           placeholder="Password" 
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          />
+          <input 
+          type="password" 
+          placeholder="Confirm Password" 
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           />
 
           <button type="submit">Register</button>

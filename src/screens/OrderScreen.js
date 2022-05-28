@@ -134,7 +134,8 @@ const OrderScreen = ({ match }) => {
                       <strong>Deliver to</strong>
                     </h5>
                     <p>
-                      Address: {order.shippingAddress.city},{" "}
+                      Address: {order.shippingAddress.state},{" "}
+                      {order.shippingAddress.city},{" "}
                       {order.shippingAddress.address},{" "}
                       {order.shippingAddress.postalCode}
                     </p>

@@ -104,7 +104,8 @@ const PlaceOrderScreen = ({ history }) => {
                   <strong>Deliver to</strong>
                 </h5>
                 <p>
-                  Address: {cart.shippingAddress.city},{" "}
+                  Address: {cart.shippingAddress.state},{" "}
+                  {cart.shippingAddress.city},{" "}
                   {cart.shippingAddress.address},{" "}
                   {cart.shippingAddress.postalCode}.
                 </p>

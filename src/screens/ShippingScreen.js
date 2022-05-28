@@ -10,7 +10,9 @@ const ShippingScreen = ({ history }) => {
   const { shippingAddress } = cart;
 
   const [address, setAddress] = useState(shippingAddress.address);
+  const [address2, setAddress2] = useState(shippingAddress.address2);
   const [city, setCity] = useState(shippingAddress.city);
+  const [state, setState] = useState(shippingAddress.state);
   const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
   const [country, setCountry] = useState(shippingAddress.country);
 
@@ -18,7 +20,7 @@ const ShippingScreen = ({ history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(saveShippingAddress({ address, city, postalCode, country }));
+    dispatch(saveShippingAddress({ address, address2, city, state, postalCode, country }));
     history.push("/payment");
   };
   return (
@@ -37,12 +39,25 @@ const ShippingScreen = ({ history }) => {
             required
             onChange={(e) => setAddress(e.target.value)}
           />
+          <input 
+            type="text"
+            placeholder="Enter Address2 (Optional)"
+            value={address2}
+            onChange={(e) => setAddress2(e.target.value)}
+          />
           <input
             type="text"
             placeholder="Enter city"
             value={city}
             required
             onChange={(e) => setCity(e.target.value)}
+          />
+          <input 
+            type="text"
+            placeholder="Enter State"
+            value={state}
+            required
+            onChange={(e) => setState(e.target.value)}
           />
           <input
             type="text"
