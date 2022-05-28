@@ -72,7 +72,13 @@ const SingleProduct = ({ history, match }) => {
           <div className="col-md-6">
             <div className="product-dtl">
               <div className="product-info">
-                <div className="product-name">{product.name}</div>
+                <div className="product-name">
+                  {product.name}
+                  <Rating
+                    value={product.rating}
+                    text={`${product.numReviews} reviews`}
+                  />
+                </div>
               </div>
               <p>{product.description}</p>
 
@@ -89,13 +95,10 @@ const SingleProduct = ({ history, match }) => {
                     <span>unavailable</span>
                   )}
                 </div>
-                <div className="flex-box d-flex justify-content-between align-items-center">
+                {/* <div className="flex-box d-flex justify-content-between align-items-center">
                   <h6>Reviews</h6>
-                  <Rating
-                    value={product.rating}
-                    text={`${product.numReviews} reviews`}
-                  />
-                </div>
+                  
+                </div> */}
                 {product.countInStock > 0 ? (
                   <>
                     <div className="flex-box d-flex justify-content-between align-items-right">
@@ -146,7 +149,7 @@ const SingleProduct = ({ history, match }) => {
               </div>
               <div className="col-md-6">
                 <h6>WRITE A CUSTOMER REVIEW</h6>
-                <div className="my-4">
+                <div className="my-3">
                   {loadingCreateReview && <Loading />}
                   {errorCreateReview && (
                     <Message variant="alert-danger">
