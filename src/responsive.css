@@ -47,7 +47,7 @@
     margin-top: 20px;
   }
   .form-section input[type="email"] {
-  text-align: center;
+  text-align: left;
   }
 }
 @media (max-width: 768px) {
@@ -117,7 +117,7 @@
     margin-top: 20px;
   }
   .form-section input[type="email"] {
-  text-align: center;
+  text-align: left;
   }
 }
 @media (max-width: 575.98px) {

@@ -10,12 +10,21 @@ const Login = ({ location, history }) => {
   window.scrollTo(0, 0);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordType, setPasswordType] = useState("password");
 
   const dispatch = useDispatch();
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
   const userLogin = useSelector((state) => state.userLogin);
   const { error, loading, userInfo } = userLogin;
+
+  const passwordShown = () => {
+    if (passwordType==="password"){
+      setPasswordType("text");
+      return;
+    }
+    setPasswordType("password");
+  };
 
   useEffect(() => {
     if (userInfo) {
@@ -44,12 +53,15 @@ const Login = ({ location, history }) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)} 
           />
+          <div className="pass-wrapper">
           <input 
-            type="password" 
+            type={passwordType} 
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <i class="fas fa-eye" onClick={passwordShown}></i>
+          </div>
           <button type="submit">Login</button>
           <p>
             <Link 

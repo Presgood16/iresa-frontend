@@ -14,6 +14,8 @@ const ProfileTabs = () => {
   const [tel, setTel] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordType, setPasswordType] = useState("password");
+  const [passwordType2, setPasswordType2] = useState("password");
   const toastId = React.useRef(null);
 
   const Toastobjects = {
@@ -21,6 +23,22 @@ const ProfileTabs = () => {
     draggable: false,
     pauseOnHover: false,
     autoClose: 2000,
+  };
+
+    const passwordShown = () => {
+    if (passwordType==="password"){
+      setPasswordType("text");
+      return;
+    }
+    setPasswordType("password");
+  };
+
+  const passwordShownConfirm = () => {
+    if (passwordType2==="password"){
+      setPasswordType2("text");
+      return;
+    }
+    setPasswordType2("password");
   };
   
   const dispatch = useDispatch();
@@ -48,7 +66,7 @@ const ProfileTabs = () => {
         toastId.current = toast.error("Password does not match", Toastobjects);
       }
     } else {
-      dispatch(updateUserProfile({ id: user._id, firstName, lastName, email, password }));
+      dispatch(updateUserProfile({ id: user._id, firstName, lastName, email, tel, password }));
       if (!toast.isActive(toastId.current)) {
         toastId.current = toast.success("Profile Updated", Toastobjects);
       }
@@ -112,23 +130,29 @@ const ProfileTabs = () => {
         <div className="col-md-6">
           <div className="form">
             <label for="account-pass">New Password</label>
+            <div className="pass-wrapper2">
             <input
               className="form-control"
-              type="password"
+              type={passwordType}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <i class="fas fa-eye" onClick={passwordShown}></i>
+            </div>
           </div>
         </div>
         <div className="col-md-6">
           <div className="form">
             <label for="account-confirm-pass">Confirm Password</label>
+            <div className="pass-wrapper2">
             <input
               className="form-control"
-              type="password"
+              type={passwordType2}
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
+            <i class="fas fa-eye" onClick={passwordShownConfirm}></i>
+            </div>
           </div>
         </div>
         <button type="submit">Update Profile</button>

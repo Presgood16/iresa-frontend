@@ -18,6 +18,8 @@ const Register = ({ location, history }) => {
   const [tel, setTel] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordType, setPasswordType] = useState("password");
+  const [passwordType2, setPasswordType2] = useState("password");
   const toastId = React.useRef(null);
 
    const Toastobjects = {
@@ -25,6 +27,22 @@ const Register = ({ location, history }) => {
     draggable: false,
     pauseOnHover: false,
     autoClose: 2000,
+  };
+
+    const passwordShown = () => {
+    if (passwordType==="password"){
+      setPasswordType("text");
+      return;
+    }
+    setPasswordType("password");
+  };
+
+  const passwordShownConfirm = () => {
+    if (passwordType2==="password"){
+      setPasswordType2("text");
+      return;
+    }
+    setPasswordType2("password");
   };
 
   const dispatch = useDispatch();
@@ -89,18 +107,24 @@ const Register = ({ location, history }) => {
           value={tel}          
           onChange={(e) => setTel(e.target.value)}
           />
+          <div className="pass-wrapper">
           <input 
-          type="password" 
+          type={passwordType}
           placeholder="Password" 
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           />
+          <i class="fas fa-eye" onClick={passwordShown}></i>
+          </div>
+          <div className="pass-wrapper">
           <input 
-          type="password" 
+          type={passwordType2}
           placeholder="Confirm Password" 
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           />
+          <i class="fas fa-eye" onClick={passwordShownConfirm}></i>
+          </div>
 
           <button type="submit">Register</button>
           <p>
