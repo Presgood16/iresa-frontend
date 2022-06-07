@@ -34,6 +34,7 @@ const Header = () => {
             <div className="col-md-6 d-flex align-items-center display-none">
               <p>+1 (346) 777-8788</p>
               <p>info@iresa.com</p>
+              <Link to="/aboutUs"> <p> About Us</p></Link>
             </div>
             <div className=" col-12 col-lg-6 justify-content-center justify-content-lg-end d-flex align-items-center">
               <a href="https://facebook.com" target="_blank" rel="noreferrer">
@@ -81,6 +82,9 @@ const Header = () => {
                       <i class="fas fa-user"></i>
                     </button>
                     <div className="dropdown-menu">
+                      <Link className="dropdown-item" to="/aboutUs">
+                        About Us
+                      </Link>
                       <Link className="dropdown-item" to="/profile">
                         Profile
                       </Link>

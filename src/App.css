@@ -60,6 +60,7 @@ textarea:focus {
 .logo-name{
   color: white;
 }
+
 .navbar-brand{
   width: 60%;
   font-family: 'Monoton', cursive;
@@ -389,6 +390,9 @@ textarea:focus {
   text-align: center;
   
 }
+.Login{
+  margin-top: 30px;
+}
 .Login input {
   width: 100%;
   padding: 12px 12px;
@@ -693,6 +697,13 @@ textarea:focus {
   font-size: 13px;
   background-color: #1E90FF;
   color: #ffffff;
+}
+
+/* About */
+.about-h1{
+  text-align: center;
+  margin-top: 10px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 /* Pagination */

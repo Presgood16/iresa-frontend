@@ -74,7 +74,6 @@ const Register = ({ location, history }) => {
   return (
     <>
       <Toast/>
-      <Header />
       <div className="container d-flex flex-column justify-content-center align-items-center login-center">
         {error && <Message variant="alert-danger">{error}</Message>}
         {loading && <Loading />}
@@ -83,6 +82,11 @@ const Register = ({ location, history }) => {
         className="Login col-md-8 col-lg-4 col-11"
         onSubmit={submitHandler}
         >
+          <div>
+            <Link className="navbar-brand" to="/">
+              <h1 className="logo_namee">Iresa</h1>
+            </Link>
+          </div>
           <input 
           type="text" 
           placeholder="First Name" 
